@@ -1,0 +1,79 @@
+Continuous Integration
+- [ Code, Fetch, Build, Test, Notify, Feedback ]
+- detect issues on early phase
+- centralized repo : github
+- build, test, evaluate
+- artifact war, jar, dll, exe, zip, tar
+- ship to server for testing
+- approved -> move to production
+- defects / re-work
+- after every commit the code must be tested
+
+Continuous Delivery
+- continuous release the tested code in production
+- server provisiong
+- dependencies
+- conf changes
+- network
+- artifact deploy
+- any other configuration
+- ansible, puppet, chef
+- terraform, cloudformation
+- Jenkins, helm charts
+- code deploy
+
+Jenkins
+- ubuntu 22 LTS
+- jenkins.io / latest version 2.482 
+- openjdk-11-jdk
+- Security Group 8080
+- plugins
+    : Nexus Artifact Uploader
+    : SonarQube Scanner 4.7
+    : Build Timestamp
+    : Pipeline Maven Integration
+    : Pipeline Utility Steps
+    : ECR
+    : Docker pipeline
+    : AWS SDK for Credentials
+
+Flow:
+1 - Developer push
+2 - Jenkins fetch code
+3 - mvn build
+4 - mvn test
+5 - sonarqube analysis
+6 - nexus upload
+7 - docker build / AWS ECR
+
+Code analysis
+- Checkstyle
+- SonarQube Scanner
+
+Jenkins configuration
+# unbuntu
+$ sudo apt update && sudo apt install awscli -y
+# search install docker engine
+# https://docs.docker.com/engine/install/ubuntu/
+# jenkins in the docker groups
+$ sudo usermod -aG docker jenkins
+$ sudo reboot
+# add IAM user 
+# add user jenkins / attache policies 
+# - AmazonEC2ContainerRegistryFullAccess
+# - AmazonECS_FullAccess (to deploy into ECS)
+# click on created user and generate access key for CLI
+# ECR repository
+# Create repository / private / 
+# name it something, ex: javainfoimg (will be used in jenkins aws configuration)
+# copy the URI
+# Plugins to install
+# Manage Jenkins / Manage Plugins 
+#   Docker Pipeline
+#   Amazon ECR
+#   Amazon Web Services SDK
+#   CloudBees Docker Build and Publish
+#   AWS Steps
+# Manage Jenkins / Manage Credentials
+# add credentials / AWS Credentials (plugin AWS)
+# name: awscreds copy/paste the IAM access key

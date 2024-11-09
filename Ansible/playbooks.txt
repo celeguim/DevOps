@@ -1,0 +1,3 @@
+# install/configure apache
+ANSIBLE_CONFIG=ansible.cfg ansible-playbook -i inventory.yaml nipogi.yaml
+

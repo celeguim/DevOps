@@ -1,0 +1,8 @@
+**/DS_Store
+**/.terraform
+**/.vagrant
+**/target/
+**/.idea
+**/.venv/
+**/*.pem
+

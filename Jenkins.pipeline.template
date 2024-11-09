@@ -1,0 +1,49 @@
+pipeline {
+    agent { any }
+
+    tools {
+        maven "MAVEN3"
+        jdk "JDK11"
+    }
+
+    environment {
+        NEXUS_URL="http://server.com:8081"
+    }
+
+    stages {
+        stage("Fetch code") {
+            steps {
+                # plugin utilization
+                git branch: 'main', url: 'https://github.com/celeguim/jvminfo.git'
+            }
+        }
+
+        stage("Build") {
+            steps {
+                # shell utilization
+                sh 'mvn install -DskipTests'
+            }
+            post {
+                success {
+                    echo 'Archiving artifacts now'
+                    # plugin utilization
+                    archiveArtifacts artifacts: '**/*.war'
+                }
+            }
+        }
+
+        stage("Units Tests") {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Checkstyle analysis') {
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
+    }
+
+#    failure {}
+}

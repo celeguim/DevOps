@@ -1,0 +1,24 @@
+EC2 for Jenkins
+- t2.small
+- ubuntu
+- docker engine
+- open SG from Jenkins to SonarQube
+- plugins
+    - Docker Pipeline
+    - Docker 
+    - Pipeline Utility steps
+
+
+EC2 for SonarQube
+
+- open SG from SonarQube to Jenkins
+
+
+EC2 for KOPS
+kops create cluster --name=vprokube.groophy.in --state=s3://vprofile-kops-state \
+--zones=us-east-1a,us-east-1b --node-count=2 --node-size=t2.micro \
+--master-size=t2.micro --dns-zone=vprokube.groophy.in 
+
+kops update cluster --name vprokube.groophy.in --state=s3://vprofile-kops-state --yes
+
+kops delete cluster --name vprokube.groophy.in --state=s3://vprofile-kops-state --yes

@@ -1,0 +1,29 @@
+Vagrant.configure("2") do |config|
+  config.hostmanager.enabled = true 
+  config.hostmanager.manage_host = true
+
+  config.vm.define "centos1" do |centos1|
+    centos1.vm.box = "eurolinux-vagrant/centos-stream-9"
+    centos1.vm.box_version = "9.0.47"
+    # centos1.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)"
+    centos1.vm.hostname = "centos1"
+    centos1.vm.network "private_network", ip: "192.168.56.111"
+    centos1.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 2
+    end
+  end
+
+  config.vm.define "centos2" do |centos2|
+    centos2.vm.box = "eurolinux-vagrant/centos-stream-9"
+    centos2.vm.box_version = "9.0.47"
+    # centos2.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)"
+    centos2.vm.hostname = "centos2"
+    centos2.vm.network "private_network", ip: "192.168.56.112"
+    centos2.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 2
+    end
+  end
+
+end

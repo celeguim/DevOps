@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: delete keypair
+    ec2_key:
+      name: ansible-key
+      region: us-east-2
+      state: absent
+
+  - name: delete instance
+    amazon.aws.ec2_instance:
+      name: "public-compute-instance"
+      key_name: "ansible-key"
+      region: us-east-2
+      state: absent
