@@ -17,7 +17,7 @@ spec:
       containers:
       - env:
         - name: JAVA_OPTS
-          value: -XX:MaxRAMPercentage=80 -XX:+UseContainerSupport
+          value: -XX:MaxRAMPercentage=80.0 -XX:+UseContainerSupport
         image: celeguim/java-app1:latest
         name: java-app1
         ports:
@@ -25,7 +25,7 @@ spec:
         resources:
           limits:
             cpu: 500m
-            memory: 550Mi
+            memory: 700Mi
           requests:
             cpu: 200m
-            memory: 350Mi
+            memory: 500Mi
