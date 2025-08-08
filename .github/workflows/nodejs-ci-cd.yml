@@ -3,10 +3,10 @@ name: NodeJS CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
-    paths: [ "NodeJS/**" ]
+#    paths: [ "NodeJS/**" ]
   pull_request:
     branches: [ "main" ]
-    paths: [ "NodeJS/**" ]
+#    paths: [ "NodeJS/**" ]
 
 jobs:
   build-app-test:
