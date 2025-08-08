@@ -18,5 +18,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - run: cd Java && mvn checkstyle:checkstyle
       - run: cd Java && mvn clean package
       - run: docker build -t java-app Java
