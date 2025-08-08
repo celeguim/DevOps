@@ -1,0 +1,52 @@
+name: NodeJS CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ NodeJS/** ]
+  pull_request:
+    branches: [ main ]
+    paths: [ NodeJS/** ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Instalar dependências
+      run: npm ci
+
+    - name: Rodar testes
+      run: npm test
+
+    - name: Build do projeto
+      run: npm run build
+
+  deploy:
+    needs: build-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+#    - name: Deploy via SSH
+#      uses: appleboy/ssh-action@v1.0.3
+#      with:
+#        host: ${{ secrets.REMOTE_HOST }}
+#        username: ${{ secrets.REMOTE_USER }}
+#        key: ${{ secrets.SSH_PRIVATE_KEY }}
+#        script: |
+#          cd /caminho/do/projeto
+#          git pull origin main
+#          npm install
+#          pm2 restart app
