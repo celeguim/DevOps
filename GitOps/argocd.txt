@@ -13,6 +13,7 @@ kubectl config set-context --current --namespace=argocd
 argocd login --core
 
 argocd admin dashboard -n argocd
+argocd admin dashboard -n argocd --port 8181
 
 argocd proj create jvminfo \
 -d https://127.0.0.1:6443,mynamespace \
