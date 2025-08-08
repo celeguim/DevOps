@@ -16,5 +16,6 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
+          distribution: 'temurin'
       - run: mvn clean package
       - run: docker build -t java-app Java
