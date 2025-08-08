@@ -31,6 +31,7 @@ jobs:
       run: npm run build
 
   docker-build:
+    needs: build-app-test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -38,7 +39,7 @@ jobs:
       run: docker build ./NodeJS/ --file ./NodeJS/Dockerfile --tag my-nodejs-app:$(date +%s)
 
   deploy:
-    needs: build-test
+    needs: docker-build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
