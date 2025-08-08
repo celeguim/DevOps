@@ -18,6 +18,25 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
       - run: cd Java && mvn checkstyle:checkstyle
       - run: cd Java && mvn clean package
-      - run: docker build -t java-app Java
+#      - run: docker build -t java-app Java
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Build and Push
+        uses: docker/build-push-action@v6
+        with:
+          context: Java/
+          push: true
+          tags: celeguim/java-app1:latest
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
