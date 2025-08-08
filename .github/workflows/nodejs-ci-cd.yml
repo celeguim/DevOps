@@ -9,7 +9,7 @@ on:
     paths: [ "NodeJS/**" ]
 
 jobs:
-  build-test:
+  build-app-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +29,13 @@ jobs:
 
     - name: Build do projeto
       run: npm run build
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build ./NodeJS/ --file ./NodeJS/Dockerfile --tag my-nodejs-app:$(date +%s)
 
   deploy:
     needs: build-test
