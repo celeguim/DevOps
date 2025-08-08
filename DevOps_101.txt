@@ -11,7 +11,7 @@ Continuous Integration
 
 Continuous Delivery
 - continuous release the tested code in production
-- server provisiong
+- server provisioning
 - dependencies
 - conf changes
 - network
@@ -51,7 +51,7 @@ Code analysis
 - SonarQube Scanner
 
 Jenkins configuration
-# unbuntu
+# ubuntu
 $ sudo apt update && sudo apt install awscli -y
 # search install docker engine
 # https://docs.docker.com/engine/install/ubuntu/
@@ -59,7 +59,7 @@ $ sudo apt update && sudo apt install awscli -y
 $ sudo usermod -aG docker jenkins
 $ sudo reboot
 # add IAM user 
-# add user jenkins / attache policies 
+# add user jenkins / attach policies
 # - AmazonEC2ContainerRegistryFullAccess
 # - AmazonECS_FullAccess (to deploy into ECS)
 # click on created user and generate access key for CLI
