@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: deployment
-  name: deployment
+    app: java-app1-deployment
+  name: java-app1-deployment
 spec:
   revisionHistoryLimit: 3
   selector:
@@ -24,8 +24,8 @@ spec:
         - containerPort: 8080
         resources:
           limits:
-            cpu: 500m
-            memory: 700Mi
+            cpu: 100m
+            memory: 200Mi
           requests:
-            cpu: 200m
-            memory: 500Mi
+            cpu: 50m
+            memory: 100Mi
