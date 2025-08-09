@@ -1,4 +1,4 @@
-package celeguim.com;
+package com.celeguim;
 
 public class HelloWorld {
     public static void main(String[] args) throws InterruptedException {

@@ -22,7 +22,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>HelloWorld</mainClass>
+                            <mainClass>celeguim.com.HelloWorld</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
