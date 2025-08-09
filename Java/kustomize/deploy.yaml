@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: deployment
+  name: java-app1-deployment
   labels:
-    app: deployment
+    app: java-app1-deployment
 
 spec:
   revisionHistoryLimit: 3
