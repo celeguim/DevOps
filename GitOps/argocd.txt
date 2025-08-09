@@ -4,6 +4,7 @@
 
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
@@ -15,10 +16,15 @@ argocd login --core
 argocd admin dashboard -n argocd
 argocd admin dashboard -n argocd --port 8181
 
+argocd proj list
+
 argocd proj create jvminfo \
 -d https://127.0.0.1:6443,mynamespace \
 -s https://github.com/celeguim/jvminfo.git
 
+argocd proj create java-app1 \
+-d https://kubernetes.default.svc,my-app \
+-s https://github.com/celeguim/DevOps.git
 
 argocd app create myapp \
   --repo https://github.com/celeguim/jvminfo.git \
@@ -27,3 +33,17 @@ argocd app create myapp \
   --dest-namespace default \
   --directory-recurse
 
+argocd app create java-app1 \
+  --project java-app1 \
+  --repo https://github.com/celeguim/DevOps.git \
+  --path Java/kustomize/result \
+  --dest-server https://kubernetes.default.svc \
+  --dest-namespace my-app \
+  --directory-recurse
+
+argocd app create java-app1 \
+  --repo https://github.com/celeguim/DevOps.git \
+  --path Java/kustomize/result \
+  --dest-server https://kubernetes.default.svc \
+  --dest-namespace my-app \
+  --directory-recurse

@@ -41,3 +41,4 @@ jobs:
           tags: celeguim/java-app1:latest
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
+          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm64/v8
