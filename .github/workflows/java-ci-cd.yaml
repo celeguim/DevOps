@@ -24,7 +24,7 @@ jobs:
       - run: docker build -t java-app Java
 
       - name: Cache SonarQube packages
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
