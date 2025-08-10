@@ -4,7 +4,8 @@ metadata:
   name: java-app1-svc
 spec:
   ports:
-  - port: 8080
+  - port: 9980
     targetPort: 8080
   selector:
     app: deployment
+  type: NodePort
