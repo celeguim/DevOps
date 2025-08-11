@@ -14,7 +14,7 @@ spec:
   - resource:
       name: memory
       target:
-        averageUtilization: 75
+        averageUtilization: 74
         type: Utilization
     type: Resource
   minReplicas: 1
