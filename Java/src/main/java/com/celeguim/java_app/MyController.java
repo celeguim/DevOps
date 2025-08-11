@@ -11,6 +11,7 @@ public class MyController  {
     public String index() throws java.net.UnknownHostException {
         String hostname = InetAddress.getLocalHost().getHostName();
         String agora = new java.util.Date().toString();
+        session.invalidate();
         return agora + "<br>" + hostname + "<br>Hello World from SpringBoot";
     }
 }
