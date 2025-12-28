@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   labels:
     app: java-app1-deployment
-  name: java-app1-deployment
+    environment: dev
+  name: dev-java-app1-deployment
 spec:
   revisionHistoryLimit: 3
   selector:
@@ -27,5 +28,5 @@ spec:
             cpu: 100m
             memory: 500Mi
           requests:
-            cpu: 50m
+            cpu: 49m
             memory: 200Mi
