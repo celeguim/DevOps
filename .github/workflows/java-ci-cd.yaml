@@ -18,6 +18,22 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Force clean Maven settings
+        run: |
+          mkdir -p ~/.m2
+          cat <<EOF > ~/.m2/settings.xml
+          <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+            <mirrors>
+              <mirror>
+                <id>central</id>
+                <url>https://repo.maven.apache.org/maven2</url>
+                <mirrorOf>central</mirrorOf>
+              </mirror>
+            </mirrors>
+          </settings>
+          EOF
 
       - run: cd Java && mvn checkstyle:checkstyle
       - run: cd Java && mvn clean package
