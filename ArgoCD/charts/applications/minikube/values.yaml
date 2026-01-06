@@ -4,5 +4,5 @@ applications:
   namespace: celeghin
   project: default
   path: Java/kustomize/overlays/dev/result
-  cluster: minikube
+  cluster: in-cluster
   autosync: true
