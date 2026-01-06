@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:celeguim/DevOps.git
+    repoURL: https://github.com/celeguim/DevOps.git
     targetRevision: main
     path: ArgoCD/charts
     helm:
