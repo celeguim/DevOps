@@ -1,0 +1,8 @@
+applications:
+
+- name: jvminfo-minikube
+  namespace: celeghin
+  project: default
+  path: Java/kustomize/overlays/dev/result
+  cluster: minikube
+  autosync: true

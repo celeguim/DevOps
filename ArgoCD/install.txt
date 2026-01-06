@@ -45,3 +45,6 @@ argocd admin export -n argocd > backup.yaml
 
 # Restore
 argocd admin import -n argocd - < backup.yaml
+
+# Add cluster
+argocd cluster add <CLUSTER-CONTEXT>

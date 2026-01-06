@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: applications-root-dev
+  namespace: argocd
+spec:
+  project: argocd
+  source:
+    repoURL: git@github.com:celeguim/DevOps.git
+    targetRevision: jvminfo-v7
+    path: ArgoCD/charts
+    helm:
+      valueFiles:
+        - applications/minikube/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: celeghin
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
