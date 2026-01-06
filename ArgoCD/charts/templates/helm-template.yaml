@@ -6,18 +6,15 @@ metadata:
   namespace: argocd
 spec:
   project: {{ .project }}
-  source:
-    repoURL: MY-REPO
-    targetRevision: main
-    path: {{ .path }}
   destination:
     name: {{ .cluster }}
     namespace: {{ .namespace }}
-{{- if .autosync }}
+  source:
+    repoURL: https://github.com/celeguim/DevOps.git
+    targetRevision: main
+    path: {{ .path }}
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: true
-{{- end }}
----
+      prune: true
+      selfHeal: false
 {{- end }}
