@@ -1,8 +1,19 @@
 applications:
 
+- name: java-app1-minikube
+  namespace: celeghin
+  project: default
+  repoURL: https://github.com/celeguim/DevOps.git
+  targetRevision: main
+  path: Java/kustomize/overlays/dev/result
+  cluster: in-cluster
+  autosync: true
+
 - name: jvminfo-minikube
   namespace: celeghin
   project: default
-  path: Java/kustomize/overlays/dev/result
+  repoURL: https://github.com/celeguim/jvminfo.git
+  targetRevision: jvminfo-v8
+  path: kustomize/overlays/dev/result
   cluster: in-cluster
   autosync: true

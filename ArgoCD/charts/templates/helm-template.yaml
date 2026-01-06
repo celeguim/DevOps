@@ -10,8 +10,8 @@ spec:
     name: {{ .cluster }}
     namespace: {{ .namespace }}
   source:
-    repoURL: https://github.com/celeguim/DevOps.git
-    targetRevision: main
+    repoURL: {{ .repoURL }}
+    targetRevision: {{ .targetRevision }}
     path: {{ .path }}
   syncPolicy:
     automated:
