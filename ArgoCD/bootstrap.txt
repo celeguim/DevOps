@@ -1,0 +1,4 @@
+Depois de instalado o argocd ira criar uma entrada no contexto (in-cluster) apontando para o minikube
+
+A aplicaçao root inicialmente precisa ter um deploy manual:
+kubectl apply -f applications-root-dev.yaml
