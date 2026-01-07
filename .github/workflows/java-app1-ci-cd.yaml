@@ -1,4 +1,4 @@
-name: Java CI/CD Pipeline
+name: Java CI/CD Pipeline for app1
 
 on:
   push:
