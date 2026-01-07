@@ -3,7 +3,7 @@ name: Java CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
-    paths: [ "Java/**" ]
+#    paths: [ "Java/**" ]
 
   pull_request:
     branches: [ "main" ]
