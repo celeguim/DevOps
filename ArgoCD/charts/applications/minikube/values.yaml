@@ -8,7 +8,16 @@ applications:
     project: default
     repoURL: https://github.com/celeguim/DevOps.git
     targetRevision: main
-    path: Java/kustomize/overlays/dev/result
+    path: Java/app1/kustomize/overlays/dev/result
+    cluster: in-cluster
+    autosync: true
+
+  - name: java-app2
+    namespace: celeghin
+    project: default
+    repoURL: https://github.com/celeguim/DevOps.git
+    targetRevision: main
+    path: Java/app2/kustomize/overlays/dev/result
     cluster: in-cluster
     autosync: true
 
