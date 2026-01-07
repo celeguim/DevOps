@@ -11,10 +11,13 @@ spec:
     namespace: {{ .namespace }}
   source:
     repoURL: {{ .repoURL }}
-    targetRevision: {{ .targetRevision }}
+    targetRevision: {{ default "main" .targetRevision }}
     path: {{ .path }}
+  {{- if .autosync }}
   syncPolicy:
     automated:
       prune: true
       selfHeal: false
+  {{- end }}
+---
 {{- end }}

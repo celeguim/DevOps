@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: applications-root-minikube
+  name: applications-root
   namespace: argocd
 spec:
   project: default

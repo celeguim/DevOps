@@ -11,5 +11,4 @@ helm template applications-root-dev charts/ -f charts/applications/minikube/valu
 helm lint charts/ -f charts/applications/minikube/values.yaml
 
 # Delete app
-argocd app delete argocd/applications-root-dev --cascade
-
+argocd app delete argocd/applications-root-minikube --cascade
