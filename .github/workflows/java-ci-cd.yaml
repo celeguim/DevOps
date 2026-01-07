@@ -10,7 +10,7 @@ on:
 #    paths: [ "NodeJS/**" ]
 
 jobs:
-  build:
+  build-app1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,9 +35,9 @@ jobs:
           </settings>
           EOF
 
-      - run: cd Java && mvn checkstyle:checkstyle
-      - run: cd Java && mvn clean package
-      - run: docker build -t java-app Java
+      - run: cd Java/app1 && mvn checkstyle:checkstyle
+      - run: cd Java/app1 && mvn clean package
+      - run: docker build -t java-app Java/app1
 
       - name: Cache SonarQube packages
         uses: actions/cache@v4
@@ -63,9 +63,10 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
-          context: Java/
+          context: Java/app1
           push: true
           tags: celeguim/java-app1:latest
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm64/v8
+
