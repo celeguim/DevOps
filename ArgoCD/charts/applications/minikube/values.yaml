@@ -25,7 +25,7 @@ applications:
     namespace: celeghin
     project: default
     repoURL: https://github.com/celeguim/jvminfo.git
-    targetRevision: jvminfo-v8
+    targetRevision: v8
     path: kustomize/overlays/dev/result
     cluster: in-cluster
     autosync: true
