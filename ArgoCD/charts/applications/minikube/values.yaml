@@ -3,23 +3,23 @@ defaults:
   autosync: true
 
 applications:
-  - name: java-app1
-    namespace: celeghin
-    project: default
-    repoURL: https://github.com/celeguim/DevOps.git
-    targetRevision: main
-    path: Java/app1/kustomize/overlays/dev/result
-    cluster: in-cluster
-    autosync: true
+  # - name: java-app1
+  #   namespace: celeghin
+  #   project: default
+  #   repoURL: https://github.com/celeguim/DevOps.git
+  #   targetRevision: main
+  #   path: Java/app1/kustomize/overlays/dev/result
+  #   cluster: in-cluster
+  #   autosync: true
 
-  - name: java-app2
-    namespace: celeghin
-    project: default
-    repoURL: https://github.com/celeguim/DevOps.git
-    targetRevision: main
-    path: Java/app2/kustomize/overlays/dev/result
-    cluster: in-cluster
-    autosync: true
+  # - name: java-app2
+  #   namespace: celeghin
+  #   project: default
+  #   repoURL: https://github.com/celeguim/DevOps.git
+  #   targetRevision: main
+  #   path: Java/app2/kustomize/overlays/dev/result
+  #   cluster: in-cluster
+  #   autosync: true
 
   - name: jvminfo-v8
     namespace: celeghin
